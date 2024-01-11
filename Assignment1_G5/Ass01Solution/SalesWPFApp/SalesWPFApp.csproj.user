@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AdminWindows\MembersManagerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminWindows\ProductsManagerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AdminWindows\ReportManagerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AuthenticatorWindows\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MemberWindows\OrderDetailsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MemberWindows\OrdersManagerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MemberWindows\UserProfileWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AdminWindows\MembersManagerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminWindows\ProductsManagerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminWindows\ReportManagerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AuthenticatorWindows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MemberWindows\OrderDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MemberWindows\OrdersManagerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MemberWindows\UserProfileWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
