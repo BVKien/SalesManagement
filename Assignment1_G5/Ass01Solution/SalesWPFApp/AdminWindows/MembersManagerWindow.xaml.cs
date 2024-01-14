@@ -1,7 +1,10 @@
-﻿using SalesWPFApp.AdminWindow;
+﻿using DataAccess.DataAccess;
+using DataAccess.Repository;
+using SalesWPFApp.AdminWindow;
 using SalesWPFApp.MemberWindows;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +16,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Controls; // For DataGrid
+using System.Windows.Controls.Primitives;
+using System.Data; // For SelectionChangedEventArgs
 
 namespace SalesWPFApp.AdminWindows
 {
@@ -21,12 +27,22 @@ namespace SalesWPFApp.AdminWindows
     /// </summary>
     public partial class MembersManagerWindow : Window
     {
+        IMemberRepository memberRepository;
         private readonly LoginWindow.UserRole userRole;
         public MembersManagerWindow()
         {
+            memberRepository = new MemberRepository();
             InitializeComponent();
-            Closing += MainWindow_Closing;
+            //Closing += MainWindow_Closing;
             AdjustUIForUserRole();
+            onLoadTable();
+        }
+        /// <summary>
+        /// load table
+        /// </summary>
+        private void onLoadTable()
+        {
+            tableMember.ItemsSource = memberRepository.GetAll();
         }
 
         // Adjust UI for user roles 
@@ -109,6 +125,104 @@ namespace SalesWPFApp.AdminWindows
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Save(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                memberRepository.CreateMember(GetMemberObject());
+                MessageBox.Show("Thêm member thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                onLoadTable();
+            }
+
+        }
+        private Member GetMemberObject()
+        {
+            Member member = new Member();
+            try
+            {
+                member = new Member
+                {
+                    Email = inputEmail.Text,
+                    CompanyName = inputCompanyName.Text,
+                    City = inputCity.Text,
+                    Country = inputCountry.Text,
+                    Password = inputPassword.Text
+                };
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Get member");
+            }
+
+            return member;
+
+        }
+
+        private void btnUpdate(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Member member = GetMemberObject();
+                member.MemberId = int.Parse(inputMemberID.Text);
+                if (memberRepository.GetMember(member.MemberId) == null)
+                {
+                    MessageBox.Show("Id không trùng khớp với bản ghi nào");
+                    return;
+                }
+                memberRepository.UpdateMember(member);
+                MessageBox.Show("Update member thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                onLoadTable();
+            }
+        }
+
+        private void btnRemove(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Member member = GetMemberObject();
+                member.MemberId = int.Parse(inputMemberID.Text);
+                if (memberRepository.GetMember(member.MemberId) == null)
+                {
+                    MessageBox.Show("Id không trùng khớp với bản ghi nào");
+                    return;
+                }
+                memberRepository.DeleteMember(member.MemberId);
+                MessageBox.Show("Remove member thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                onLoadTable();
             }
         }
     }

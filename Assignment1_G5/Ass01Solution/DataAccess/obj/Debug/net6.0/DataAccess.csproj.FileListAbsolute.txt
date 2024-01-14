@@ -1,0 +1,16 @@
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\bin\Debug\net6.0\appsettings.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.sourcelink.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

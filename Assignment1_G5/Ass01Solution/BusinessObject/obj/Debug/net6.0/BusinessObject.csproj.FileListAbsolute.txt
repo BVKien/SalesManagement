@@ -1,0 +1,17 @@
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\bin\Debug\net6.0\appsettings.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\bin\Debug\net6.0\BusinessObject.deps.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\bin\Debug\net6.0\BusinessObject.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\bin\Debug\net6.0\BusinessObject.pdb
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\bin\Debug\net6.0\DataAccess.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.AssemblyReference.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfoInputs.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.AssemblyInfo.cs
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CoreCompileInputs.cache
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.sourcelink.json
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.csproj.CopyComplete
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\refint\BusinessObject.dll
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\BusinessObject.pdb
+C:\Users\hoang\OneDrive\Desktop\New folder\SalesManagement\Assignment1_G5\Ass01Solution\BusinessObject\obj\Debug\net6.0\ref\BusinessObject.dll

@@ -26,7 +26,7 @@ namespace SalesWPFApp
         // ----- 
         private void ConfigureServices(ServiceCollection services)
         {
-            // services.AddSingleton(typeof(IMemberRepository), typeof(MemberRepository));
+            services.AddSingleton(typeof(IMemberRepository), typeof(MemberRepository));
             services.AddSingleton<LoginWindow>();
         }
 
