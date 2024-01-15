@@ -78,7 +78,7 @@ namespace DataAccess.Repository
 
         public int UpdateMember(Member member)
         {
-            _eStoreContext.Entry<Member>(member).State = EntityState.Modified;
+            _eStoreContext.Entry(member).State = EntityState.Modified;
             return _eStoreContext.SaveChanges();
         }
     }

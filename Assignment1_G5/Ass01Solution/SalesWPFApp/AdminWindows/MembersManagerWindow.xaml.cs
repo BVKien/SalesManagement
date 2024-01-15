@@ -128,16 +128,6 @@ namespace SalesWPFApp.AdminWindows
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btn_Save(object sender, RoutedEventArgs e)
         {
             try
@@ -177,14 +167,32 @@ namespace SalesWPFApp.AdminWindows
             return member;
 
         }
+        private Member GetMemberObject(int id)
+        {
+            Member member = memberRepository.GetMember(id);
+            try
+            {
+                member.Email = inputEmail.Text;
+                member.CompanyName = inputCompanyName.Text;
+                member.City = inputCity.Text;
+                member.Country = inputCountry.Text;
+                member.Password = inputPassword.Text;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Get member");
+            }
+
+            return member;
+
+        }
 
         private void btnUpdate(object sender, RoutedEventArgs e)
         {
             try
             {
-                Member member = GetMemberObject();
-                member.MemberId = int.Parse(inputMemberID.Text);
-                if (memberRepository.GetMember(member.MemberId) == null)
+                Member member = GetMemberObject(getIdPicked());
+                if (member == null)
                 {
                     MessageBox.Show("Id không trùng khớp với bản ghi nào");
                     return;
@@ -199,15 +207,27 @@ namespace SalesWPFApp.AdminWindows
             finally
             {
                 onLoadTable();
+
             }
         }
+        private int getIdPicked()
+        {
 
+            var item = (Member)tableMember.SelectedItem;
+            if (item == null)
+            {
+                throw new Exception("Hãy chọn member trong table");
+            }
+            var res = item.MemberId;
+            return res;
+
+        }
         private void btnRemove(object sender, RoutedEventArgs e)
         {
             try
             {
                 Member member = GetMemberObject();
-                member.MemberId = int.Parse(inputMemberID.Text);
+                member.MemberId = getIdPicked();
                 if (memberRepository.GetMember(member.MemberId) == null)
                 {
                     MessageBox.Show("Id không trùng khớp với bản ghi nào");
@@ -225,5 +245,6 @@ namespace SalesWPFApp.AdminWindows
                 onLoadTable();
             }
         }
+
     }
 }

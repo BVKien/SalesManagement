@@ -61,7 +61,7 @@ namespace SalesWPFApp.MemberWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;component/memberwindows/userprofilewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;V1.0.0.0;component/memberwindows/userprofilewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\MemberWindows\UserProfileWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
