@@ -24,6 +24,7 @@ namespace SalesWPFApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string currentEmail = null;
         private readonly LoginWindow.UserRole userRole;
         //public int LoggedInMemberId { get; set; }
         public MainWindow(LoginWindow.UserRole userRole)
@@ -125,14 +126,14 @@ namespace SalesWPFApp
 
         private void HandleProfileClick()
         {
-            UserProfileWindow userProfileWindow = new UserProfileWindow();
+            UserProfileWindow userProfileWindow = new UserProfileWindow(currentEmail);
             this.Hide();
             userProfileWindow.Show();
         }
 
         private void HandleOrdersClick()
         {
-            OrdersManagerWindow ordersManagerWindow = new OrdersManagerWindow();
+            OrdersManagerWindow ordersManagerWindow = new OrdersManagerWindow(currentEmail);
             this.Hide();
             ordersManagerWindow.Show();
         }
