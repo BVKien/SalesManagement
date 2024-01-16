@@ -161,6 +161,5 @@ namespace SalesWPFApp.MemberWindows
                 MessageBox.Show(ex.Message, "Update Profile");
             }
         }
-        //
     }
 }
