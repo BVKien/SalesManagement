@@ -23,7 +23,7 @@ namespace SalesWPFApp.MemberWindows
     /// </summary>
     public partial class UserProfileWindow : Window
     {
-        //eStoreContext context;
+        private eStoreContext context=new eStoreContext();
         //Vuong Quoc Anh
         IMemberRepository memberRepository;
         private Member currentMember;
@@ -42,7 +42,7 @@ namespace SalesWPFApp.MemberWindows
             Loaded += UserProfileWindow_Loaded;
 
         }
-
+       
         private void UserProfileWindow_Loaded(object sender, RoutedEventArgs e)
         {
             if (currentMember != null)
@@ -149,10 +149,19 @@ namespace SalesWPFApp.MemberWindows
         {
             try
             {
-                Member member = GetMemberObject();
-                memberRepository.UpdateMember(member);
-                Loaded += UserProfileWindow_Loaded;
-                MessageBox.Show("Update success");
+                if (!string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtCity.Text) && !string.IsNullOrEmpty(txtCompanyName.Text)
+                    && !string.IsNullOrEmpty(txtCountry.Text) && !string.IsNullOrEmpty(txtPassWord.Text))
+                {
+                    Member member = GetMemberObject();
+                    memberRepository.UpdateMember(member);
+                    Loaded += UserProfileWindow_Loaded;
+                    MessageBox.Show("Update success");
+                }
+                else
+                {
+                    MessageBox.Show("All field must not empty!");
+                }
+                
             }
             catch (Exception ex)
             {
