@@ -19,11 +19,13 @@ namespace SalesWPFApp.MemberWindows
     /// </summary>
     public partial class OrdersManagerWindow : Window
     {
+        public string currentEmail = null;
         private readonly LoginWindow.UserRole userRole;
-        public OrdersManagerWindow()
+        public OrdersManagerWindow(string email)
         {
             InitializeComponent();
             Closing += MainWindow_Closing;
+            currentEmail= email;
             AdjustUIForUserRole();
         }
 
@@ -46,7 +48,7 @@ namespace SalesWPFApp.MemberWindows
 
         private void HandleProfileClick()
         {
-            UserProfileWindow userProfileWindow = new UserProfileWindow();
+            UserProfileWindow userProfileWindow = new UserProfileWindow(currentEmail);
             this.Hide();
             userProfileWindow.Show();
         }

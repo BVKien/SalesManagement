@@ -9,6 +9,15 @@ namespace DataAccess.Repository
 {
     public interface IMemberRepository
     {
-        Member FindMember(string email, string password); 
+        Member FindMember(string email, string password);
+        //Vuong Quoc Anh Code
+        IEnumerable<Member> GetMembers();
+        Member GetMemberByID(int memId);
+        Member GetMemberByEmail(string email);
+        void AddMember(Member member);
+        void DeleteMember(Member member);
+        void UpdateMember(Member member);
+        //end Vuong Quoc Anh Code
+
     }
 }
