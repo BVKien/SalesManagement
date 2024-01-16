@@ -13,11 +13,29 @@
         <Menu x:Name="menuBar" 
               Margin="0,0,0,568" 
               Background="#f2f6fd"/>
-        <TextBox Text="User Profile"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20"/>
-        <Label Content="Author: ..." 
+
+        <StackPanel Margin="20">
+            <TextBlock Text="User Profile" FontWeight="ExtraBold" FontSize="20" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Email:" FontWeight="Bold"/>
+            <TextBox x:Name="txtEmail" Width="200" Margin="0,0,0,10" 
+                     />
+
+            <TextBlock Text="CompanyName:" FontWeight="Bold"/>
+            <TextBox x:Name="txtCompanyName" Width="200" Margin="0,0,0,10" 
+                     />
+            <TextBlock Text="City:" FontWeight="Bold"/>
+            <TextBox x:Name="txtCity" Width="200" Margin="0,0,0,10" 
+                     />
+            <TextBlock Text="Country:" FontWeight="Bold"/>
+            <TextBox x:Name="txtCountry" Width="200" Margin="0,0,0,10" 
+                     />
+            <TextBlock Text="Password:" FontWeight="Bold"/>
+            <TextBox x:Name="txtPassWord" Width="200" Margin="0,0,0,10" 
+                     />
+            <Button Content="Save" FontWeight="Bold" Click="Button_Click" Width="100"/>
+        </StackPanel>
+        <Label Content="Author: Vuong Quoc Anh" 
                FontSize="15"
                HorizontalAlignment="Left" 
                Margin="773,560,0,0" 
