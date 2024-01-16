@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj": {}
+    "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj": {
+    "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\obj\\",
+        "projectPath": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\Dopii\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dopii\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,15 +26,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj"
               }
             }
           }
@@ -64,24 +63,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\FU_Learning\\PRN221\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Dopii\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dopii\\Desktop\\temp\\SalesManagement\\Assignment1_G5\\Ass01Solution\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Dopii\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -90,7 +89,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -144,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess.DataAccess;
+using DataAccess.ViewObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,5 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class OrderDetailDAO
-    {
-    }
+    public class OrderDetailDAO { }
 }
