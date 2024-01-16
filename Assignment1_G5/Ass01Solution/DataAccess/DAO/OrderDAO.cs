@@ -1,5 +1,6 @@
 ﻿using DataAccess.DataAccess;
 using Microsoft.EntityFrameworkCore;
+using DataAccess.ViewObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DAO
 {
-    public class OrderDAO
+    public class OrderDAO : eStoreContext
     {
         // Bui Van Kien 
         // Using singleton design pattern 
         private static OrderDAO instance = null;
         public static readonly object instanceLock = new object();
-        private OrderDAO() { }
+        public OrderDAO() { }
         public static OrderDAO Instance
         {
             get
@@ -133,10 +134,35 @@ namespace DataAccess.DAO
                 var eStoreContext = new eStoreContext();
                 eStoreContext.Orders.Remove(order);
                 eStoreContext.SaveChanges();
-            } 
-            catch(Exception ex) 
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            } 
+        }
+
+        public List<OrderReport> GetOrderReport(DateTime fromDate, DateTime toDate)
+        {
+            using (var context = new eStoreContext())
+            {
+                var orderReports = context.Orders
+                    .Where(o => o.OrderDate >= fromDate && o.OrderDate <= toDate)
+                    .Select(o => new OrderReport
+                    {
+                        OrderDate = o.OrderDate,
+                        ShippedDate = o.ShippedDate,
+                        Revenue = o.OrderDetails.Sum(od => (od.UnitPrice * od.Quantity) - od.Discount),
+                        OrderDetails = o.OrderDetails.Select(od => new OrderDetail
+                        {
+                            ProductId = od.ProductId,
+                            Quantity = od.Quantity,
+                            UnitPrice = od.UnitPrice,
+                            Discount = od.Discount
+                        }).ToList()
+                    })
+                    .ToList();
+
+                return orderReports;
             }
         }
     }

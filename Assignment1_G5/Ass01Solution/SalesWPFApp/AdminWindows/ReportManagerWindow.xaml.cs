@@ -1,7 +1,11 @@
-﻿using SalesWPFApp.AdminWindows;
+﻿using DataAccess.DAO;
+using DataAccess.ViewObjects;
+using SalesWPFApp.AdminWindows;
 using SalesWPFApp.MemberWindows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +32,8 @@ namespace SalesWPFApp.AdminWindow
             Closing += MainWindow_Closing;
             AdjustUIForUserRole();
         }
+
+        int BtnClicked = 0;
 
         // Adjust UI for user roles 
         private void AdjustUIForUserRole()
@@ -109,6 +115,72 @@ namespace SalesWPFApp.AdminWindow
             };
             this.Hide();
             loginWindow.Show();
+        }
+
+        private void Form_Loaded(object sender, EventArgs e)
+        {
+            lblHeader.Visibility = Visibility.Hidden;
+            lblTotalMoney.Visibility = Visibility.Hidden;
+            dtgInfo.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (BtnClicked % 2 == 0)
+            {
+                var DateFrom = DatePickerFrom.SelectedDate;
+                if (DateFrom == null)
+                {
+                    MessageBox.Show("Must select From Date");
+                    return;
+                }
+
+                var DateTo = DatePickerTo.SelectedDate;
+                if (DateTo == null)
+                {
+                    MessageBox.Show("Must select To Date");
+                    return;
+                }
+                DatePickerFrom.Visibility = Visibility.Hidden;
+                DatePickerTo.Visibility = Visibility.Hidden;
+                lblSubtract.Visibility = Visibility.Hidden;
+
+                lblHeader.Visibility = Visibility.Visible;
+                lblTotalMoney.Visibility = Visibility.Visible;
+                dtgInfo.Visibility = Visibility.Visible;
+
+                SearchBtn.Content = "Clear";
+
+                OrderDAO dao = new OrderDAO();
+                ObservableCollection < OrderReport > DataList = new(dao.GetOrderReport(DateFrom.Value, DateTo.Value));
+
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Order Date", Width= Width/4-1, Binding = new System.Windows.Data.Binding("OrderDate") });
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Shipped Date", Width = Width / 4-1, Binding = new System.Windows.Data.Binding("ShippedDate") });
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Revenue", Width = Width / 4-1, Binding = new System.Windows.Data.Binding("Revenue") });
+
+                DataGridTemplateColumn detailsColumn = new DataGridTemplateColumn()
+                {
+                    Header = "Details",
+                    CellTemplate = (DataTemplate)Resources["DetailsButtonTemplate"],
+                    Width = Width / 4-1
+                };
+                dtgInfo.Columns.Add(detailsColumn);
+                dtgInfo.ItemsSource = DataList;
+                lblTotalMoney.Text = DataList.Sum(x => x.Revenue).ToString();
+                BtnClicked++;
+            }
+            else
+            {
+                DatePickerFrom.Visibility = Visibility.Visible;
+                DatePickerTo.Visibility = Visibility.Visible;
+                lblSubtract.Visibility = Visibility.Visible;
+
+                lblHeader.Visibility = Visibility.Hidden;
+                lblTotalMoney.Visibility = Visibility.Hidden;
+                dtgInfo.Visibility = Visibility.Hidden;
+                SearchBtn.Content = "Search";
+                BtnClicked++;
+            }
         }
     }
 }

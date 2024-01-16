@@ -1,5 +1,6 @@
 ﻿using DataAccess.DataAccess;
 using Microsoft.EntityFrameworkCore;
+using DataAccess.ViewObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
