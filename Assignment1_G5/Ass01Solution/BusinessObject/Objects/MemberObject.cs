@@ -1,10 +1,10 @@
-﻿using DataAccess.Repository;
+﻿using DataAccess.DataAccess;
+using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccess.Repository;
 
 namespace BusinessObject.Objects
 {
@@ -16,6 +16,8 @@ namespace BusinessObject.Objects
         {
             memberRepository = new MemberRepository();
         }
+
+        public int GetMemberIdByEmail(string enteredEmail) => memberRepository.GetMemberIdByEmail(enteredEmail);
 
         public bool Login(string email, string password)
         {

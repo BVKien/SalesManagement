@@ -9,6 +9,7 @@ namespace DataAccess.Repository
 {
     public interface IMemberRepository
     {
-        Member FindMember(string email, string password); 
+        Member FindMember(string email, string password);
+        int GetMemberIdByEmail(string email);
     }
 }

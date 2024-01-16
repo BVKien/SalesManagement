@@ -1,4 +1,5 @@
-﻿using DataAccess.DataAccess;
+﻿using DataAccess.DAO;
+using DataAccess.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace DataAccess.Repository
 {
     public class MemberRepository : IMemberRepository
     {
+        public readonly MemberDAO memberDAO;
         public Member FindMember(string email, string password)
         {
             try
@@ -22,5 +24,7 @@ namespace DataAccess.Repository
                 throw new Exception(ex.Message, ex);
             }
         }
+
+        public int GetMemberIdByEmail(string email) => MemberDAO.Instance.GetMemberIdByEmail(email);
     }
 }

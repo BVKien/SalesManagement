@@ -24,6 +24,9 @@ namespace SalesWPFApp
         private readonly MemberObject memberObject;
         private readonly IConfiguration configuration;
 
+        // Add and store member information 
+        public int LoggedInMemberId { get; private set; }
+
         public enum UserRole
         {
             Admin,
@@ -64,6 +67,7 @@ namespace SalesWPFApp
             }
             else if (isAuthorized)
             {
+                LoggedInMemberId = memberObject.GetMemberIdByEmail(enteredEmail); // Hàm lấy memberId đang lỗi, còn lại logic đúng 
                 LoggedInUserRole = UserRole.Member;
                 MessageBox.Show("Member login successful!");
                 MainWindow mainWindow = new MainWindow(LoggedInUserRole);

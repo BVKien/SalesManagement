@@ -25,6 +25,7 @@ namespace SalesWPFApp
     public partial class MainWindow : Window
     {
         private readonly LoginWindow.UserRole userRole;
+        //public int LoggedInMemberId { get; set; }
         public MainWindow(LoginWindow.UserRole userRole)
         {
             InitializeComponent();

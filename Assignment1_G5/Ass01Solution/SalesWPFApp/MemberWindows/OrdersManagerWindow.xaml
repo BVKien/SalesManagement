@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:SalesWPFApp.MemberWindows"
         mc:Ignorable="d"
         WindowStyle="None"
@@ -13,14 +14,75 @@
         <Menu x:Name="menuBar" 
               Margin="0,0,0,568" 
               Background="#f2f6fd"/>
-        <TextBox Text="Orders Manager"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20"/>
-        <Label Content="Author: ..." 
+        <Label Content="Author: Bui Van Kien" 
                FontSize="15"
                HorizontalAlignment="Left" 
                Margin="773,560,0,0" 
                VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
+
+        <DataGrid x:Name="dgOrderList" d:ItemsSource="{d:SampleData ItemCount=25}" Margin="5,37,10,300" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order Id" 
+                                    Width="100" 
+                                    Binding="{Binding OrderId}" 
+                                    IsReadOnly="True" />
+                <DataGridTextColumn Header="Order Date" 
+                                    Width="220" 
+                                    Binding="{Binding OrderDate, StringFormat={}{0:yyyy-MM-dd}}" />
+                <DataGridTextColumn Header="Required Date" 
+                                    Width="220" 
+                                    Binding="{Binding RequiredDate, StringFormat={}{0:yyyy-MM-dd}}" />
+                <DataGridTextColumn Header="Shipped Date" 
+                                    Width="220" 
+                                    Binding="{Binding ShippedDate, StringFormat={}{0:yyyy-MM-dd}}" />
+                <DataGridTextColumn Header="Freight" 
+                                    Width="200" 
+                                    Binding="{Binding Freight}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <GroupBox x:Name="gbOrderInfor" Header="Order information" Margin="10,305,10,25">
+            <Grid Margin="6,0,-6,0">
+                <TextBox x:Name="txtMemberId" HorizontalAlignment="Left" 
+                         VerticalAlignment="Top" Margin="120,55,0,0" Width="200" Visibility="Hidden"
+                         Text="{Binding Path=MemberId, Mode=OneWay}"
+                         DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
+
+                <Label x:Name="lbOrderDate" Content="Order Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,68,0,0" RenderTransformOrigin="0.589,0.972"/>
+                <DatePicker x:Name="dpOrderDate" HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" Margin="120,70,0,0" Width="200"
+                            SelectedDate="{Binding Path=OrderDate, Mode=TwoWay, TargetNullValue={x:Static sys:DateTime.Now}}"
+                            DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
+
+                <Label x:Name="lbRequiredDate" Content="Required Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <DatePicker x:Name="dpRequiredDate" HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" Margin="120,113,0,0" Width="200"
+                            SelectedDate="{Binding Path=RequiredDate, Mode=TwoWay, TargetNullValue={x:Static sys:DateTime.Now}}"
+                            DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" RenderTransformOrigin="0.494,0.102" />
+
+                <Label x:Name="lbShippedDate" Content="Shipped Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,154,0,0"/>
+                <DatePicker x:Name="dpShippedDate" HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" Margin="120,155,0,0" Width="200"
+                            SelectedDate="{Binding Path=ShippedDate, Mode=TwoWay, TargetNullValue={x:Static sys:DateTime.Now}}"
+                            DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
+
+                <Label x:Name="lbFreight" Content="Freight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,193,0,0" RenderTransformOrigin="0.492,0.002"/>
+                <TextBox x:Name="txtFreight" HorizontalAlignment="Left" 
+                         VerticalAlignment="Top" Margin="120,197,0,0" Width="200"
+                         Text="{Binding Path=Freight, Mode=OneWay}"
+                         DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
+
+                <Label x:Name="lbOrderId" Content="Order Id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,14,0,0" RenderTransformOrigin="1.297,1.435" Visibility="Hidden"/>
+                <TextBox x:Name="txtOrderId" HorizontalAlignment="Left" 
+                         VerticalAlignment="Top" Margin="120,18,0,0" Width="200" Visibility="Hidden"
+                         Text="{Binding Path=OrderId, Mode=OneWay}"
+                         DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
+
+                <Button x:Name="btnInsertOrder" Content="Insert" HorizontalAlignment="Left" Margin="357,72,0,0" VerticalAlignment="Top" Width="78" Height="22" Click="btnInsertOrder_Click" Background="#FFEBE8CB"/>
+                <Button x:Name="btnUpdateOrder" Content="Update" HorizontalAlignment="Left" Margin="449,72,0,0" VerticalAlignment="Top" Width="86" Height="22" Click="btnUpdateOrder_Click" Background="#FFD1DDF0"/>
+                <Button x:Name="btnDeleteOrder" Content="Delete" HorizontalAlignment="Left" Margin="555,72,0,0" VerticalAlignment="Top" Click="btnDeleteOrder_Click" Height="22" Width="92" Background="#FFF3D3D3"/>
+                <Button x:Name="btnViewOrderDetails" Content="View Order Details" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="121" Height="24" Click="btnViewOrderDetails_Click" BorderBrush="#FFBDBBBB" Background="#FFDEF4F4"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
