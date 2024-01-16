@@ -24,10 +24,9 @@ namespace DataAccess.Repository
                 throw new Exception(ex.Message, ex);
             }
         }
-<<<<<<< HEAD
 
         public int GetMemberIdByEmail(string email) => MemberDAO.Instance.GetMemberIdByEmail(email);
-=======
+
         //Vuong Quoc Anh Code
         public void AddMember(Member member)
         => MemberDAO.Instance.AddNew(member);
@@ -47,6 +46,5 @@ namespace DataAccess.Repository
         public Member GetMemberByEmail(string email)
         => MemberDAO.Instance.GetMemberByEmail(email);
         //End Vuong Quoc Anh Code
->>>>>>> 2c1080b21fe3ba225999b06d9c437e8ade278825
     }
 }

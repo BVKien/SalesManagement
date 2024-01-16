@@ -48,32 +48,83 @@ namespace SalesWPFApp
         // Login 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            //using (var context = new eStoreContext())
+            //{
+            //    string enteredEmail = txtEmail.Text;
+            //    string enteredPassword = txtPassword.Password;
+
+            //    bool isAuthorized = memberObject.Login(enteredEmail, enteredPassword);
+
+            //    string adminEmail = configuration["AdminAccount:Email"];
+            //    string adminPassword = configuration["AdminAccount:Password"];
+
+            //    if (enteredEmail == adminEmail && enteredPassword == adminPassword)
+            //    {
+            //        LoggedInUserRole = UserRole.Admin;
+            //        MessageBox.Show("Admin login successful!");
+            //        MainWindow mainWindow = new MainWindow(LoggedInUserRole);
+            //        mainWindow.Show();
+            //        txtEmail.Clear();
+            //        txtPassword.Clear();
+            //        this.Hide();
+            //    }
+            //    else if (isAuthorized)
+            //    {
+            //        LoggedInMemberId = memberObject.GetMemberIdByEmail(enteredEmail); // Hàm lấy memberId đang lỗi, còn lại logic đúng 
+            //        LoggedInUserRole = UserRole.Member;
+            //        MessageBox.Show("Member login successful!");
+            //        MainWindow mainWindow = new MainWindow(LoggedInUserRole);
+            //        mainWindow.Show();
+            //        txtEmail.Clear();
+            //        txtPassword.Clear();
+            //        this.Hide();
+            //    }
+            //    //else
+            //    //{
+            //    //    MessageBox.Show("Login failed, email and password are incorrect");
+            //    //    string enteredEmail = txtEmail.Text;
+            //    //    string enteredPassword = txtPassword.Password;
+
+            //    //    bool isAuthorized = memberObject.Login(enteredEmail, enteredPassword);
+
+            //    //    string adminEmail = configuration["AdminAccount:Email"];
+            //    //    string adminPassword = configuration["AdminAccount:Password"];
+
+            //    //    if (enteredEmail == adminEmail && enteredPassword == adminPassword)
+            //    //    {
+            //    //        LoggedInUserRole = UserRole.Admin;
+            //    //        MessageBox.Show("Admin login successful!");
+            //    //        MainWindow mainWindow = new MainWindow(LoggedInUserRole);
+            //    //        mainWindow.currentEmail = enteredEmail;
+            //    //        mainWindow.Show();
+            //    //        txtEmail.Clear();
+            //    //        txtPassword.Clear();
+            //    //        Session.memberSession = context.Members.FirstOrDefault(x => x.Email.Equals(enteredEmail) && x.Password.Equals(enteredPassword));
+            //    //        this.Hide();
+            //    //    }
+            //    //    else if (isAuthorized)
+            //    //    {
+            //    //        LoggedInUserRole = UserRole.Member;
+            //    //        MessageBox.Show("Member login successful!");
+            //    //        MainWindow mainWindow = new MainWindow(LoggedInUserRole);
+            //    //        mainWindow.currentEmail = enteredEmail;
+            //    //        mainWindow.Show();
+            //    //        txtEmail.Clear();
+            //    //        txtPassword.Clear();
+            //    //        Session.memberSession = context.Members.FirstOrDefault(x => x.Email.Equals(enteredEmail) && x.Password.Equals(enteredPassword));
+            //    //        this.Hide();
+
+
+            //    //    }
+            //        else
+            //        {
+            //            MessageBox.Show("Login failed, email and password are incorrect");
+            //        }
+            //    }
+
+
             using (var context = new eStoreContext())
             {
-<<<<<<< HEAD
-                LoggedInUserRole = UserRole.Admin;
-                MessageBox.Show("Admin login successful!");
-                MainWindow mainWindow = new MainWindow(LoggedInUserRole);
-                mainWindow.Show();
-                txtEmail.Clear();
-                txtPassword.Clear();
-                this.Hide();
-            }
-            else if (isAuthorized)
-            {
-                LoggedInMemberId = memberObject.GetMemberIdByEmail(enteredEmail); // Hàm lấy memberId đang lỗi, còn lại logic đúng 
-                LoggedInUserRole = UserRole.Member;
-                MessageBox.Show("Member login successful!");
-                MainWindow mainWindow = new MainWindow(LoggedInUserRole);
-                mainWindow.Show();
-                txtEmail.Clear();
-                txtPassword.Clear();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Login failed, email and password are incorrect");
-=======
                 string enteredEmail = txtEmail.Text;
                 string enteredPassword = txtPassword.Password;
 
@@ -114,7 +165,6 @@ namespace SalesWPFApp
                 {
                     MessageBox.Show("Login failed, email and password are incorrect");
                 }
->>>>>>> 2c1080b21fe3ba225999b06d9c437e8ade278825
             }
         }
 

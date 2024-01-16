@@ -29,7 +29,6 @@ namespace DataAccess.DAO
                 }
             }
         }
-<<<<<<< HEAD
 
         public int GetMemberIdByEmail(string email)
         {
@@ -44,7 +43,7 @@ namespace DataAccess.DAO
             // Handle the case where member is not found
             throw new InvalidOperationException("Member not found for the given email");
         }
-=======
+
         //Vuong Quoc Anh Code
         public IEnumerable<Member> GetMembersList()
         {
@@ -147,8 +146,6 @@ namespace DataAccess.DAO
                         m.Country = member.Country;
                         //estoreDB.Entry<Member>(member).State = EntityState.Modified;
                         estoreDB.SaveChanges();
-
-
                     }
                     else
                     {
@@ -184,7 +181,6 @@ namespace DataAccess.DAO
                 throw new Exception(ex.Message);
             }
         }
-        //end Vuong Quoc Anh Code
->>>>>>> 2c1080b21fe3ba225999b06d9c437e8ade278825
+        //end Vuong Quoc Anh Code 
     }
 }

@@ -25,14 +25,11 @@ namespace SalesWPFApp.MemberWindows
     {
         public string currentEmail = null;
         private readonly LoginWindow.UserRole userRole;
-<<<<<<< HEAD
         private readonly OrderObject orderObject;
         private readonly int loggedInMemberId = 1; // Đang hardcode 
         IOrderRepository orderRepository;
-        public OrdersManagerWindow()
-=======
+        // public OrdersManagerWindow();
         public OrdersManagerWindow(string email)
->>>>>>> 2c1080b21fe3ba225999b06d9c437e8ade278825
         {
             InitializeComponent();
             orderObject = new OrderObject(new OrderRepository());

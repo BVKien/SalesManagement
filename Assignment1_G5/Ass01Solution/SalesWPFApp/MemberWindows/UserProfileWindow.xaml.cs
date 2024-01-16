@@ -29,13 +29,10 @@ namespace SalesWPFApp.MemberWindows
         private Member currentMember;
         //Vuong Quoc Anh
         private readonly LoginWindow.UserRole userRole;
-<<<<<<< HEAD
         //public int LoggedInMemberId { get; set; }
-        public UserProfileWindow()
-=======
+        // public UserProfileWindow();
         public string currentEmail = null;
         public UserProfileWindow(string email)
->>>>>>> 2c1080b21fe3ba225999b06d9c437e8ade278825
         {
             memberRepository = new MemberRepository();
 

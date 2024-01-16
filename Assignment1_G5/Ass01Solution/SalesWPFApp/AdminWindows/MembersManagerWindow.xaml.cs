@@ -102,14 +102,5 @@ namespace SalesWPFApp.AdminWindows
             this.Hide();
             loginWindow.Show();
         }
-
-        // Mouse down 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
     }
 }
