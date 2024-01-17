@@ -89,20 +89,12 @@ namespace SalesWPFApp.MemberWindows
             loginWindow.Show();
         }
 
-        // Mouse down 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
-
         // Bui Van Kien
         // Load order list 
         public void LoadOrderList()
         {
-            dgOrderList.ItemsSource = orderRepository.GetOrderList();
+            //dgOrderList.ItemsSource = orderRepository.GetOrderList();
+            dgOrderList.ItemsSource = orderRepository.GetOrderListByMemberId(Session.memberSession.MemberId);
         }
 
         // Bui Van Kien 
@@ -114,7 +106,6 @@ namespace SalesWPFApp.MemberWindows
             {
                 order = new Order
                 {
-                    //OrderId = int.Parse(txtOrderId.Text),
                     MemberId = int.Parse(txtMemberId.Text),
                     OrderDate = dpOrderDate.SelectedDate ?? DateTime.MinValue,
                     RequiredDate = dpRequiredDate.SelectedDate,

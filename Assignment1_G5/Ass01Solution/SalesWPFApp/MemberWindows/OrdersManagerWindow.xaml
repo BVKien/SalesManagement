@@ -8,8 +8,7 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Height="600" Width="1000"
-        MouseDown="Window_MouseDown">
+        Height="600" Width="1000">
     <Grid>
         <Menu x:Name="menuBar" 
               Margin="0,0,0,568" 

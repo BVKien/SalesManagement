@@ -75,5 +75,13 @@ namespace DataAccess.Repository
                         select p;
             return query.ToList();
         }
+
+        // Bui Van Kien 
+        // Get all products 
+        public IEnumerable<Product> GetAllProducts()
+        {
+            var distinctProducts = context.Products.GroupBy(p => p.ProductName).Select(g => g.First());
+            return distinctProducts.ToList();
+        }
     }
 }

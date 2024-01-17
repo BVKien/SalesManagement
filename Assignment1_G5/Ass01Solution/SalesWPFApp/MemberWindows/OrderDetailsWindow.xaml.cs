@@ -27,15 +27,20 @@ namespace SalesWPFApp.MemberWindows
         private readonly LoginWindow.UserRole userRole;
         private readonly OrderDetailObject orderDetailObject;
         IOrderDetailRepository orderDetailRepository;
+        private static eStoreContext context;
+        private readonly IProductRepository productRepository;
         private readonly int _orderId;
         public OrderDetailsWindow(int orderId)
         {
             InitializeComponent();
             orderDetailObject = new OrderDetailObject(new OrderDetailRepository());
             orderDetailRepository = new OrderDetailRepository();
+            context = new eStoreContext();
+            productRepository = new ProductRepository(context);
             Closing += MainWindow_Closing;
             this._orderId = orderId;
             LoadOrderDetailsList(_orderId);
+            LoadProductsList();
         }
 
         // Close 
@@ -43,26 +48,6 @@ namespace SalesWPFApp.MemberWindows
         {
             e.Cancel = true;
             this.Hide();
-        }
-
-        // Mouse down 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //if (e.LeftButton == MouseButtonState.Pressed)
-            //{
-            //    DragMove();
-            //}
-        }
-
-        public void load_Data()
-        {
-            var products = context.Products.Include(p => p.Category).ToList();
-            lvProd.ItemsSource = products;
-            var categories = context.Categories.ToList();
-            Categories = new ObservableCollection<Category>(categories);
-            cbCateId.ItemsSource = Categories;
-            cbCateId.DisplayMemberPath = "CategoryName";
-            cbCateId.SelectedValuePath = "CategoryId";
         }
 
         // Bui Van Kien 
@@ -93,6 +78,13 @@ namespace SalesWPFApp.MemberWindows
         private void LoadOrderDetailsList(int orderId)
         {
             dgOrderDetailList.ItemsSource = orderDetailRepository.GetOrderDetailListByOrderId(orderId);
+        }
+
+        // Bui Van Kien 
+        // Load product list 
+        private void LoadProductsList()
+        {
+            dgProductList.ItemsSource = productRepository.GetAllProducts();
         }
 
         // Bui Van Kien 

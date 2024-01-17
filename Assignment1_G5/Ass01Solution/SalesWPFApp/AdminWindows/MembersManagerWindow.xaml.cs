@@ -45,6 +45,12 @@ namespace SalesWPFApp.AdminWindows
             tableMember.ItemsSource = memberRepository.GetAll();
         }
 
+        private void onLoadTable(List<Member> members)
+        {
+            tableMember.ItemsSource = members;
+        }
+
+
         // Adjust UI for user roles 
         private void AdjustUIForUserRole()
         {
@@ -235,6 +241,42 @@ namespace SalesWPFApp.AdminWindows
             {
                 onLoadTable();
             }
+        }
+
+        /// <summary>
+        /// search event btn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// @author: gitzno - thuyht
+        /// @date: 16/01/2024
+        private void btnSearch(object sender, RoutedEventArgs e)
+        {
+            List<Member> members = new List<Member>();
+            try
+            {
+                if (inputSearch.Text == "")
+                {
+                    members = memberRepository.GetAll();
+                }
+                else
+                {
+                    List<Member> memberz = memberRepository.GetAll();
+                    foreach (var item in memberz)
+                    {
+                        if (item.Email.Contains(inputSearch.Text))
+                        {
+                            members.Add(item);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally { onLoadTable(members); }
         }
     }
 }

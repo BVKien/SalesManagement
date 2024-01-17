@@ -14,5 +14,8 @@ namespace DataAccess.Repository
         void UpdateProduct(Product product);
         void DeleteProduct(int productId);
         IEnumerable<Product> SearchProduct(Product searchProduct);
+
+        // Bui Van Kien 
+        IEnumerable<Product> GetAllProducts();
     }
 }

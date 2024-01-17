@@ -56,13 +56,6 @@ namespace SalesWPFApp.MemberWindows
                 txtPassWord.Text = currentMember.Password;
             }
         }
-        ////Vuong Quoc Anh
-        //public UserProfileWindow(IMemberRepository repository)
-        //{
-        //    memberRepository = repository;
-        //}
-        //Vuong Quoc Anh
-
 
         // Adjust UI for user roles 
         private void AdjustUIForUserRole()
@@ -80,7 +73,6 @@ namespace SalesWPFApp.MemberWindows
             menuBar.Items.Add(manageMenu);
             menuBar.Items.Add(logoutMenu);
         }
-
 
         private void HandleOrdersClick()
         {
@@ -114,17 +106,7 @@ namespace SalesWPFApp.MemberWindows
             loginWindow.Show();
         }
 
-        // Mouse down 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
-
-        //Vuong Quoc Anh
-
+        // Vuong Quoc Anh
         private Member GetMemberObject()
         {
             Member member = null;
