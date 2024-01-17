@@ -9,25 +9,33 @@
         WindowStartupLocation="CenterScreen"
         Height="600" Width="1000" Loaded="Form_Loaded">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20*"></RowDefinition>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="22*"></RowDefinition>
             <RowDefinition Height="80*"></RowDefinition>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
 
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>-->
 
-        <Menu x:Name="menuBar" Margin="0,0,0,568" Background="#f2f6fd"></Menu>
+        <Menu x:Name="menuBar" 
+              Margin="0,0,0,568" 
+              Background="#f2f6fd"/>
+        <Label Content="Author: Nguyen Truong Huy"
+               FontSize="15"
+               HorizontalAlignment="Left" 
+               Margin="773,560,0,0" 
+               VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="Pick date to export report" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 3"></TextBlock>
-        <DatePicker Name="DatePickerFrom" Grid.Column="0" Grid.Row="0" Height="28" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,25,0,0"></DatePicker>
-        <TextBlock x:Name="lblSubtract" Grid.Column="0" Grid.Row="0" Text="-" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,23,0,0"></TextBlock>
-        <DatePicker Name="DatePickerTo" Grid.Column="0" Grid.Row="0" Height="28" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,25,0,0"></DatePicker>
-        <TextBlock x:Name="lblHeader" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="BÁO CÁO DOANH THU" VerticalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-        <TextBlock x:Name="lblTotalMoney" HorizontalAlignment="Left" Margin="5 0 0 10" TextWrapping="Wrap" Text="Tổng doanh thu tháng" VerticalAlignment="Bottom"/>
-        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" Name="dtgInfo" Grid.Row="1" Width="Auto"/>
-        <Button Name="SearchBtn" Content="Search" HorizontalAlignment="Left" Margin="5,58,0,0" VerticalAlignment="Top" Height="33" Width="108" Click="Button_Click"/>
+
+        <TextBlock x:Name="lbPickDate" Grid.Column="0" Grid.Row="0" Text="Pick date to export report" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5, 20, 0, 0"></TextBlock>
+        <DatePicker Name="DatePickerFrom" Grid.Column="0" Grid.Row="0" Height="28" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,40,0,0"></DatePicker>
+        <TextBlock x:Name="lblSubtract" Grid.Column="0" Grid.Row="0" Text="-" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,33,0,0"></TextBlock>
+        <DatePicker Name="DatePickerTo" Grid.Column="0" Grid.Row="0" Height="28" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,40,0,0"></DatePicker>
+        <TextBlock x:Name="lblHeader" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="SALES REPORT" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Margin="0,69,0,0"/>
+        <TextBlock x:Name="lblTotalMoney" HorizontalAlignment="Left" Margin="10,0,0,460" TextWrapping="Wrap" Text="Total monthly revenue" VerticalAlignment="Bottom"/>
+        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" Name="dtgInfo" Width="Auto" Margin="2,166,2,3"/>
+        <Button Name="SearchBtn" Content="Search" HorizontalAlignment="Left" Margin="5,75,5,0" VerticalAlignment="Top" Height="28" Width="100" Click="Button_Click"/>
     </Grid>
 
     <Window.Resources>

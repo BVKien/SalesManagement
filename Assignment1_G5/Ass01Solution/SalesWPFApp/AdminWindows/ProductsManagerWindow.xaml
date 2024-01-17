@@ -16,7 +16,7 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    FontSize="20"/>
-        <Label Content="Author: ..." 
+        <Label Content="Author: Tran Khanh Hien" 
                FontSize="15"
                HorizontalAlignment="Left" 
                Margin="773,560,0,0" 

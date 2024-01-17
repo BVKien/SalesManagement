@@ -141,6 +141,8 @@ namespace SalesWPFApp.AdminWindow
                     MessageBox.Show("Must select To Date");
                     return;
                 }
+                lbPickDate.Visibility = Visibility.Hidden;
+
                 DatePickerFrom.Visibility = Visibility.Hidden;
                 DatePickerTo.Visibility = Visibility.Hidden;
                 lblSubtract.Visibility = Visibility.Hidden;
@@ -171,6 +173,8 @@ namespace SalesWPFApp.AdminWindow
             }
             else
             {
+                lbPickDate.Visibility = Visibility.Visible;
+
                 DatePickerFrom.Visibility = Visibility.Visible;
                 DatePickerTo.Visibility = Visibility.Visible;
                 lblSubtract.Visibility = Visibility.Visible;

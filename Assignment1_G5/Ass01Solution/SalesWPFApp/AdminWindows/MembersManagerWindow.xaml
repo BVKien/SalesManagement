@@ -16,7 +16,7 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    FontSize="30" Margin="10,37,0,0"/>
-        <Label Content="Author: thuyht" 
+        <Label Content="Author: Hoang Thai Thuy" 
                FontSize="15"
                HorizontalAlignment="Left" 
                Margin="881,560,0,0" 

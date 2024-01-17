@@ -124,7 +124,7 @@ namespace SalesWPFApp.AdminWindows
             try
             {
                 memberRepository.CreateMember(GetMemberObject());
-                MessageBox.Show("Thêm member thành công!");
+                MessageBox.Show("Add new member successfully!");
             }
             catch (Exception ex)
             {
@@ -185,11 +185,11 @@ namespace SalesWPFApp.AdminWindows
                 Member member = GetMemberObject(getIdPicked());
                 if (member == null)
                 {
-                    MessageBox.Show("Id không trùng khớp với bản ghi nào");
+                    MessageBox.Show("Not found member id");
                     return;
                 }
                 memberRepository.UpdateMember(member);
-                MessageBox.Show("Update member thành công!");
+                MessageBox.Show("Update member successfully!");
             }
             catch (Exception ex)
             {
@@ -207,7 +207,7 @@ namespace SalesWPFApp.AdminWindows
             var item = (Member)tableMember.SelectedItem;
             if (item == null)
             {
-                throw new Exception("Hãy chọn member trong table");
+                throw new Exception("Please select a member in the table");
             }
             var res = item.MemberId;
             return res;
@@ -221,11 +221,11 @@ namespace SalesWPFApp.AdminWindows
                 member.MemberId = getIdPicked();
                 if (memberRepository.GetMember(member.MemberId) == null)
                 {
-                    MessageBox.Show("Id không trùng khớp với bản ghi nào");
+                    MessageBox.Show("Not found member id");
                     return;
                 }
                 memberRepository.DeleteMember(member.MemberId);
-                MessageBox.Show("Remove member thành công!");
+                MessageBox.Show("Remove member successfully!");
             }
             catch (Exception ex)
             {
