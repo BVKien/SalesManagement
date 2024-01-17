@@ -98,13 +98,20 @@ namespace DataAccess.DAO
         {
             try
             {
-                var eStoreContext = new eStoreContext();
-                eStoreContext.OrderDetails.Add(orderDetail);
-                eStoreContext.SaveChanges();
+                if (orderDetail != null)
+                {
+                    var eStoreContext = new eStoreContext();
+                    eStoreContext.OrderDetails.Add(orderDetail);
+                    eStoreContext.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentNullException("orderDetail", "The order detail is null.");
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("The order detail is already exist" + ex.Message);
+                throw new Exception("Error adding order detail: " + ex.Message);
             }
         }
 
@@ -114,13 +121,20 @@ namespace DataAccess.DAO
         {
             try
             {
-                var eStoreContext = new eStoreContext();
-                eStoreContext.Entry<OrderDetail>(orderDetail).State = EntityState.Modified;
-                eStoreContext.SaveChanges();
+                if (orderDetail != null)
+                {
+                    var eStoreContext = new eStoreContext();
+                    eStoreContext.Entry<OrderDetail>(orderDetail).State = EntityState.Modified;
+                    eStoreContext.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentNullException("orderDetail", "The order detail is null.");
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("The order detail does not exist" + ex.Message);
+                throw new Exception("Error update order detail" + ex.Message);
             }
         }
 
@@ -130,13 +144,20 @@ namespace DataAccess.DAO
         {
             try
             {
-                var eStoreContext = new eStoreContext();
-                eStoreContext.OrderDetails.Remove(orderDetail);
-                eStoreContext.SaveChanges();
+                if (orderDetail != null)
+                {
+                    var eStoreContext = new eStoreContext();
+                    eStoreContext.OrderDetails.Remove(orderDetail);
+                    eStoreContext.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentNullException("orderDetail", "The order detail is null.");
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("Error remove order detail" + ex.Message);
             }
         }
     }

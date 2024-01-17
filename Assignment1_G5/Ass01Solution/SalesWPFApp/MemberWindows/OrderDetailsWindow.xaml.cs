@@ -2,6 +2,7 @@
 using DataAccess.DAO;
 using DataAccess.DataAccess;
 using DataAccess.Repository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,9 @@ namespace SalesWPFApp.MemberWindows
         private static eStoreContext context;
         private readonly IProductRepository productRepository;
         private readonly int _orderId;
+
+        public ObservableCollection<Product> Products { get; private set; }
+
         public OrderDetailsWindow(int orderId)
         {
             InitializeComponent();
@@ -40,7 +44,6 @@ namespace SalesWPFApp.MemberWindows
             Closing += MainWindow_Closing;
             this._orderId = orderId;
             LoadOrderDetailsList(_orderId);
-            LoadProductsList();
         }
 
         // Close 
@@ -52,19 +55,56 @@ namespace SalesWPFApp.MemberWindows
 
         // Bui Van Kien 
         // Get order detail object
+        //private OrderDetail GetOrderDetailObject()
+        //{
+        //    OrderDetail orderDetail = null;
+        //    try
+        //    {
+        //        orderDetail = new OrderDetail
+        //        {
+        //            ProductId = (int)cbProductId.SelectedValue,
+        //            OrderId = _orderId,
+        //            UnitPrice = int.Parse(txtUnitPrice.Text),
+        //            Quantity = int.Parse(txtQuantity.Text),
+        //            Discount = int.Parse(txtDiscount.Text),
+        //        };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Get order");
+        //    }
+        //    return orderDetail;
+        //}
+
         private OrderDetail GetOrderDetailObject()
         {
             OrderDetail orderDetail = null;
             try
             {
-                orderDetail = new OrderDetail
+                int productId = 0;
+                int unitPrice = 0;
+                int quantity = 0;
+                int discount = 0;
+
+                if (cbProductId.SelectedValue != null && int.TryParse(cbProductId.SelectedValue.ToString(), out productId) &&
+                    !string.IsNullOrEmpty(txtUnitPrice.Text) && int.TryParse(txtUnitPrice.Text, out unitPrice) &&
+                    !string.IsNullOrEmpty(txtQuantity.Text) && int.TryParse(txtQuantity.Text, out quantity) &&
+                    !string.IsNullOrEmpty(txtDiscount.Text) && int.TryParse(txtDiscount.Text, out discount))
                 {
-                    ProductId = int.Parse(txtProductId.Text),
-                    OrderId = int.Parse(txtOrderId.Text),
-                    UnitPrice = int.Parse(txtUnitPrice.Text),
-                    Quantity = int.Parse(txtQuantity.Text),
-                    Discount = int.Parse(txtDiscount.Text),
-                };
+                    orderDetail = new OrderDetail
+                    {
+                        ProductId = (int)cbProductId.SelectedValue,
+                        OrderId = _orderId,
+                        UnitPrice = int.Parse(txtUnitPrice.Text),
+                        Quantity = int.Parse(txtQuantity.Text),
+                        Discount = int.Parse(txtDiscount.Text),
+                    };
+                }
+                else
+                {
+                    MessageBox.Show("Please enter valid values for Product, Unit Price, Quantity, and Discount.");
+                    orderDetail = null;
+                }
             }
             catch (Exception ex)
             {
@@ -78,13 +118,12 @@ namespace SalesWPFApp.MemberWindows
         private void LoadOrderDetailsList(int orderId)
         {
             dgOrderDetailList.ItemsSource = orderDetailRepository.GetOrderDetailListByOrderId(orderId);
-        }
-
-        // Bui Van Kien 
-        // Load product list 
-        private void LoadProductsList()
-        {
-            dgProductList.ItemsSource = productRepository.GetAllProducts();
+            // Combobox 
+            var products = context.Products.ToList();
+            Products = new ObservableCollection<Product>(products);
+            cbProductId.ItemsSource = Products;
+            cbProductId.DisplayMemberPath = "ProductName";
+            cbProductId.SelectedValuePath = "ProductId";
         }
 
         // Bui Van Kien 

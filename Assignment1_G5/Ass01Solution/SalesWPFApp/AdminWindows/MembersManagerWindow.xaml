@@ -21,7 +21,7 @@
                HorizontalAlignment="Left" 
                Margin="881,560,0,0" 
                VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
-        <DataGrid Name="tableMember" Margin="10,84,500,25" />
+        <DataGrid Name="tableMember" Margin="10,84,500,25" CanUserAddRows="False" Grid.ColumnSpan="1" />
 
         <Label Content="Email" HorizontalAlignment="Left" Margin="510,120,0,0" VerticalAlignment="Top"/>
         <Label Content="Company Name" HorizontalAlignment="Left" Margin="510,150,0,0" VerticalAlignment="Top" Height="26"/>

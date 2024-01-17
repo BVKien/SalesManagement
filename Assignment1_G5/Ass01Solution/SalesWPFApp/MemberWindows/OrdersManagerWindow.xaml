@@ -19,7 +19,7 @@
                Margin="773,560,0,0" 
                VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
 
-        <DataGrid x:Name="dgOrderList" d:ItemsSource="{d:SampleData ItemCount=25}" Margin="5,37,10,300" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgOrderList" d:ItemsSource="{d:SampleData ItemCount=25}" Margin="5,37,10,300" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Order Id" 
                                     Width="100" 
@@ -32,7 +32,7 @@
                                     Width="220" 
                                     Binding="{Binding RequiredDate, StringFormat={}{0:yyyy-MM-dd}}" />
                 <DataGridTextColumn Header="Shipped Date" 
-                                    Width="220" 
+                                    Width="206" 
                                     Binding="{Binding ShippedDate, StringFormat={}{0:yyyy-MM-dd}}" />
                 <DataGridTextColumn Header="Freight" 
                                     Width="200" 
@@ -47,27 +47,32 @@
                          Text="{Binding Path=MemberId, Mode=OneWay}"
                          DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
 
-                <Label x:Name="lbOrderDate" Content="Order Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,68,0,0" RenderTransformOrigin="0.589,0.972"/>
+                <Label Content="Date Now" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,42,0,0" RenderTransformOrigin="0.589,0.972"/>
+                <DatePicker HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" Margin="120,43,0,0" Width="200" IsEnabled="False"
+                    SelectedDate="{x:Static sys:DateTime.Now}" />
+
+                <Label x:Name="lbOrderDate" Content="Order Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,83,0,0" RenderTransformOrigin="0.589,0.972"/>
                 <DatePicker x:Name="dpOrderDate" HorizontalAlignment="Left" 
-                            VerticalAlignment="Top" Margin="120,70,0,0" Width="200"
+                            VerticalAlignment="Top" Margin="120,85,0,0" Width="200"
                             SelectedDate="{Binding Path=OrderDate, Mode=TwoWay, TargetNullValue={x:Static sys:DateTime.Now}}"
                             DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
 
-                <Label x:Name="lbRequiredDate" Content="Required Date" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                <Label x:Name="lbRequiredDate" Content="Required Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,125,0,0" RenderTransformOrigin="0.524,1.018"/>
                 <DatePicker x:Name="dpRequiredDate" HorizontalAlignment="Left" 
-                            VerticalAlignment="Top" Margin="120,113,0,0" Width="200"
+                            VerticalAlignment="Top" Margin="120,127,0,0" Width="200"
                             SelectedDate="{Binding Path=RequiredDate, Mode=TwoWay, TargetNullValue={x:Static sys:DateTime.Now}}"
                             DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" RenderTransformOrigin="0.494,0.102" />
 
-                <Label x:Name="lbShippedDate" Content="Shipped Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,154,0,0"/>
+                <Label x:Name="lbShippedDate" Content="Shipped Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,167,0,0"/>
                 <DatePicker x:Name="dpShippedDate" HorizontalAlignment="Left" 
-                            VerticalAlignment="Top" Margin="120,155,0,0" Width="200"
+                            VerticalAlignment="Top" Margin="120,169,0,0" Width="200"
                             SelectedDate="{Binding Path=ShippedDate, Mode=TwoWay, TargetNullValue={x:Static sys:DateTime.Now}}"
                             DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
 
-                <Label x:Name="lbFreight" Content="Freight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,193,0,0" RenderTransformOrigin="0.492,0.002"/>
+                <Label x:Name="lbFreight" Content="Freight" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,206,0,0" RenderTransformOrigin="0.492,0.002"/>
                 <TextBox x:Name="txtFreight" HorizontalAlignment="Left" 
-                         VerticalAlignment="Top" Margin="120,197,0,0" Width="200"
+                         VerticalAlignment="Top" Margin="120,214,0,0" Width="200"
                          Text="{Binding Path=Freight, Mode=OneWay}"
                          DataContext="{Binding ElementName=dgOrderList, Path=SelectedItem}" />
 
@@ -80,7 +85,11 @@
                 <Button x:Name="btnInsertOrder" Content="Insert" HorizontalAlignment="Left" Margin="357,72,0,0" VerticalAlignment="Top" Width="78" Height="22" Click="btnInsertOrder_Click" Background="#FFEBE8CB"/>
                 <Button x:Name="btnUpdateOrder" Content="Update" HorizontalAlignment="Left" Margin="449,72,0,0" VerticalAlignment="Top" Width="86" Height="22" Click="btnUpdateOrder_Click" Background="#FFD1DDF0"/>
                 <Button x:Name="btnDeleteOrder" Content="Delete" HorizontalAlignment="Left" Margin="555,72,0,0" VerticalAlignment="Top" Click="btnDeleteOrder_Click" Height="22" Width="92" Background="#FFF3D3D3"/>
-                <Button x:Name="btnViewOrderDetails" Content="View Order Details" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="121" Height="24" Click="btnViewOrderDetails_Click" BorderBrush="#FFBDBBBB" Background="#FFDEF4F4"/>
+                <Button x:Name="btnViewOrderDetails" Content="View Order Details" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" Height="24" Click="btnViewOrderDetails_Click" BorderBrush="#FFBDBBBB" Background="#FFDEF4F4"/>
+
+                <Label Content="*Auto insert Date Now if empty" FontSize="7" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,70,0,0" RenderTransformOrigin="0.589,0.972" Height="21" Width="112"/>
+                <Label Content="*Auto insert Date Now if empty" FontSize="7" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,112,0,0" RenderTransformOrigin="0.589,0.972" Height="21" Width="112"/>
+                <Label Content="*Auto insert Date Now if empty" FontSize="7" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,154,0,0" RenderTransformOrigin="0.589,0.972" Height="21" Width="112"/>
             </Grid>
         </GroupBox>
     </Grid>

@@ -154,17 +154,17 @@ namespace SalesWPFApp.AdminWindow
                 SearchBtn.Content = "Clear";
 
                 OrderDAO dao = new OrderDAO();
-                ObservableCollection < OrderReport > DataList = new(dao.GetOrderReport(DateFrom.Value, DateTo.Value));
+                ObservableCollection<OrderReport> DataList = new(dao.GetOrderReport(DateFrom.Value, DateTo.Value));
 
-                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Order Date", Width= Width/4-1, Binding = new System.Windows.Data.Binding("OrderDate") });
-                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Shipped Date", Width = Width / 4-1, Binding = new System.Windows.Data.Binding("ShippedDate") });
-                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Revenue", Width = Width / 4-1, Binding = new System.Windows.Data.Binding("Revenue") });
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Order Date", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("OrderDate") });
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Shipped Date", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("ShippedDate") });
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Revenue", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("Revenue") });
 
                 DataGridTemplateColumn detailsColumn = new DataGridTemplateColumn()
                 {
                     Header = "Details",
                     CellTemplate = (DataTemplate)Resources["DetailsButtonTemplate"],
-                    Width = Width / 4-1
+                    Width = Width / 4 - 1
                 };
                 dtgInfo.Columns.Add(detailsColumn);
                 dtgInfo.ItemsSource = DataList;

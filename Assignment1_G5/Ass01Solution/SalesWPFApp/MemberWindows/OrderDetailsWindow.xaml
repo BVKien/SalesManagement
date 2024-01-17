@@ -18,7 +18,7 @@
                Margin="773,560,0,0" 
                VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
 
-        <DataGrid x:Name="dgOrderDetailList" d:ItemsSource="{d:SampleData ItemCount=25}" Margin="5,37,10,300" AutoGenerateColumns="False">
+        <DataGrid x:Name="dgOrderDetailList" d:ItemsSource="{d:SampleData ItemCount=25}" Margin="5,37,10,300" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="OrderDetail Id" 
                                     Width="170" 
@@ -35,7 +35,7 @@
                                     Width="180" 
                                     Binding="{Binding Quantity}" />
                 <DataGridTextColumn Header="Discount(%)" 
-                                    Width="180" 
+                                    Width="184" 
                                     Binding="{Binding Discount}" />
             </DataGrid.Columns>
         </DataGrid>
@@ -47,24 +47,18 @@
                  Text="{Binding Path=OrderDetailId, Mode=OneWay}"
                  DataContext="{Binding ElementName=dgOrderDetailList, Path=SelectedItem}" />
 
+                <ComboBox x:Name="cbProductId" 
+                      ItemsSource="{Binding Products}" 
+                      SelectedValuePath="ProductId"
+                      DisplayMemberPath="ProductName"
+                      SelectedValue="{Binding ElementName=dgOrderDetailList, Path=SelectedItem.ProductId}" Margin="120,26,634,184">
+                </ComboBox>
+
                 <Label Content="ProductName" HorizontalAlignment="Left" Margin="13,23,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtProductId" HorizontalAlignment="Left" 
-                 VerticalAlignment="Top" Margin="120,27,0,0" Width="200"
+                 VerticalAlignment="Top" Margin="623,167,0,0" Width="200" Visibility="Hidden"
                  Text="{Binding Path=ProductId, Mode=OneWay}"
                  DataContext="{Binding ElementName=dgOrderDetailList, Path=SelectedItem}" />
-
-                <DataGrid x:Name="dgProductList" d:ItemsSource="{d:SampleData ItemCount=25}" Margin="330,23,369,44" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Product Id" 
-                                    Width="70" 
-                                    Binding="{Binding ProductId}" 
-                                    IsReadOnly="True" />
-                        <DataGridTextColumn Header="ProductName" 
-                                    Width="174" 
-                                    Binding="{Binding ProductName}"
-                                    IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
 
                 <TextBox x:Name="txtOrderId" HorizontalAlignment="Left" 
                  VerticalAlignment="Top" Margin="120,67,0,0" Width="200" Visibility="Hidden"
@@ -89,9 +83,9 @@
                  Text="{Binding Path=Discount, Mode=OneWay}"
                  DataContext="{Binding ElementName=dgOrderDetailList, Path=SelectedItem}" />
 
-                <Button x:Name="btnInsertOd" Content="Insert" HorizontalAlignment="Left" Margin="623,28,0,0" VerticalAlignment="Top" Click="btnInsertOd_Click" Height="24" Width="76" Background="#FFEBE8CB"/>
-                <Button x:Name="btnUpdateOd" Content="Update" HorizontalAlignment="Left" Margin="735,28,0,0" VerticalAlignment="Top" Click="btnUpdateOd_Click" RenderTransformOrigin="2.142,-1.847" Height="24" Width="82" Background="#FFD1DDF0"/>
-                <Button x:Name="btnDeleteOd" Content="Delete" HorizontalAlignment="Left" Margin="838,29,0,0" VerticalAlignment="Top" Click="btnDeleteOd_Click" Height="23" Width="90" Background="#FFF6EBEB"/>
+                <Button x:Name="btnInsertOd" Content="Insert" HorizontalAlignment="Left" Margin="399,27,0,0" VerticalAlignment="Top" Click="btnInsertOd_Click" Height="24" Width="76" Background="#FFEBE8CB"/>
+                <Button x:Name="btnUpdateOd" Content="Update" HorizontalAlignment="Left" Margin="513,29,0,0" VerticalAlignment="Top" Click="btnUpdateOd_Click" RenderTransformOrigin="2.142,-1.847" Height="24" Width="82" Background="#FFD1DDF0"/>
+                <Button x:Name="btnDeleteOd" Content="Delete" HorizontalAlignment="Left" Margin="633,29,0,0" VerticalAlignment="Top" Click="btnDeleteOd_Click" Height="24" Width="90" Background="#FFF6EBEB"/>
                 <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left" Margin="816,207,0,0" VerticalAlignment="Top" Click="btnClose_Click" Height="24" Width="71" Background="#FFD3F3F2"/>
             </Grid>
         </GroupBox>

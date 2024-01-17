@@ -26,7 +26,6 @@ namespace SalesWPFApp.MemberWindows
         public string currentEmail = null;
         private readonly LoginWindow.UserRole userRole;
         private readonly OrderObject orderObject;
-        private readonly int loggedInMemberId = 1; // Đang hardcode 
         IOrderRepository orderRepository;
         // public OrdersManagerWindow();
         public OrdersManagerWindow(string email)
@@ -93,7 +92,6 @@ namespace SalesWPFApp.MemberWindows
         // Load order list 
         public void LoadOrderList()
         {
-            //dgOrderList.ItemsSource = orderRepository.GetOrderList();
             dgOrderList.ItemsSource = orderRepository.GetOrderListByMemberId(Session.memberSession.MemberId);
         }
 
@@ -106,10 +104,10 @@ namespace SalesWPFApp.MemberWindows
             {
                 order = new Order
                 {
-                    MemberId = int.Parse(txtMemberId.Text),
-                    OrderDate = dpOrderDate.SelectedDate ?? DateTime.MinValue,
-                    RequiredDate = dpRequiredDate.SelectedDate,
-                    ShippedDate = dpShippedDate.SelectedDate ?? DateTime.MinValue,
+                    MemberId = Session.memberSession.MemberId,
+                    OrderDate = dpOrderDate.SelectedDate ?? DateTime.Now,
+                    RequiredDate = dpRequiredDate.SelectedDate ?? DateTime.Now,
+                    ShippedDate = dpShippedDate.SelectedDate ?? DateTime.Now,
                     Freight = string.IsNullOrEmpty(txtFreight.Text) ? (int?)null : int.Parse(txtFreight.Text)
                 };
             }

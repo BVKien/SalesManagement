@@ -89,6 +89,7 @@ namespace DataAccess.DAO
             }
             return member;
         }
+
         //-----------------
         public void AddNew(Member member)
         {

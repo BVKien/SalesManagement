@@ -163,16 +163,6 @@ namespace SalesWPFApp.AdminWindow
         {
             load_Data();
         }
-        private void ClearUIFields()
-        {
-            // Đặt lại giá trị trên giao diện người dùng sau khi thêm sản phẩm
-            tbProdId.Text = "";
-            cbCateId.SelectedIndex = -1;
-            tbProdName.Text = "";
-            tbWeight.Text = "";
-            tbPrice.Text = "";
-            tbInStock.Text = "";
-        }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -181,7 +171,6 @@ namespace SalesWPFApp.AdminWindow
                 Product newProduct = GetProductFromUI();
                 productRepository.AddProduct(newProduct);
                 load_Data();
-                ClearUIFields();
                 MessageBox.Show("Product added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
@@ -202,7 +191,6 @@ namespace SalesWPFApp.AdminWindow
                     updatedProduct.ProductId = selectedProduct.ProductId;
                     productRepository.UpdateProduct(updatedProduct);
                     load_Data();
-                    ClearUIFields();
                     MessageBox.Show("Product updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
@@ -233,7 +221,6 @@ namespace SalesWPFApp.AdminWindow
 
                         load_Data();
 
-                        ClearUIFields();
                         MessageBox.Show("Product deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
