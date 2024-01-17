@@ -1,0 +1,5 @@
++ Activity Diagram
+https://www.figma.com/file/DRfMVUwmX8On6ysuKPj6k4/UML-Activity-Diagram?type=whiteboard&node-id=423-1573&t=NEz3pRi0J0jQ7XLu-0
+
++ ERD, UC Diagram 
+https://lucid.app/lucidchart/9e6b07d4-2428-400a-9fe4-0088b0df97e8/edit?beaconFlowId=5E75BAFC012497C0&invitationId=inv_b4a3cb03-2416-49da-835f-cf2c556ff879&fbclid=IwAR0yHMOAQiqyzXThAeg03B37QHXspVfRRyrsxleoNo7utdhWUk1Vnfxme60&page=6yF3DTYZoVur#
