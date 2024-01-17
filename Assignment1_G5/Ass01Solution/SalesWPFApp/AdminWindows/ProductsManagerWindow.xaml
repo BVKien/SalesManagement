@@ -7,19 +7,58 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
-        Height="600" Width="1000">
+        Loaded="Window_Loaded"
+        Height="600" Width="1000"
+        >
     <Grid>
-        <Menu x:Name="menuBar" 
-              Margin="0,0,0,568" 
-              Background="#f2f6fd"/>
-        <TextBox Text="Products Manager"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20"/>
-        <Label Content="Author: Tran Khanh Hien" 
-               FontSize="15"
-               HorizontalAlignment="Left" 
-               Margin="773,560,0,0" 
-               VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Background="LightBlue" Orientation="Vertical">
+            <Menu x:Name="menuBar" Background="#f2f6fd"/>
+            <Label Foreground="Red" FontWeight="DemiBold" FontSize="20" Content="Product Information"/>
+            <Label>ProductId</Label>
+            <TextBox x:Name="tbProdId" Text="{Binding Path=ProductId}" IsReadOnly="True" DataContext="{Binding ElementName=lvProd,Path=SelectedItem}"></TextBox>
+            <Label>Category</Label>
+            <ComboBox x:Name="cbCateId" 
+                      ItemsSource="{Binding Categories}" 
+                      SelectedValuePath="CategoryId"
+                      DisplayMemberPath="CategoryName"
+                      SelectedValue="{Binding ElementName=lvProd, Path=SelectedItem.CategoryId}">
+            </ComboBox>
+            <Label>Product Name</Label>
+            <TextBox x:Name="tbProdName" Text="{Binding Path=ProductName}" DataContext="{Binding ElementName=lvProd,Path=SelectedItem}"></TextBox>
+            <Label>Weight</Label>
+            <TextBox x:Name="tbWeight" Text="{Binding Path=Weight}" DataContext="{Binding ElementName=lvProd,Path=SelectedItem}"></TextBox>
+            <Label>Unit Price</Label>
+            <TextBox x:Name="tbPrice" Text="{Binding Path=UnitPrice}" DataContext="{Binding ElementName=lvProd,Path=SelectedItem}"></TextBox>
+            <Label>Unit InStock</Label>
+            <TextBox x:Name="tbInStock" Text="{Binding Path=UnitInStock}" DataContext="{Binding ElementName=lvProd,Path=SelectedItem}"></TextBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
+            <Button x:Name="btAdd" Click="btAdd_Click" Margin="20" Height="24" Width="35">Add</Button>
+            <Button x:Name="btUpdate" Click="btUpdate_Click"  Margin="20" Height="24" Width="57">Update</Button>
+            <Button x:Name="btDelete" Click="btDelete_Click"  Margin="20" Height="24" Width="51">Delete</Button>
+            <Button x:Name="btSearch" Click="btSearch_Click"  Margin="20" Height="24" Width="51">Search</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+            <ListView x:Name="lvProd">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ProductId" Width="100" DisplayMemberBinding="{Binding Path=ProductId}"/>
+                        <GridViewColumn Header="CategoryId" Width="100" DisplayMemberBinding="{Binding Path=Category.CategoryName}"/>
+                        <GridViewColumn Header="Product Name" Width="100" DisplayMemberBinding="{Binding Path=ProductName}"/>
+                        <GridViewColumn Header="Weight" Width="100" DisplayMemberBinding="{Binding Path=Weight}"/>
+                        <GridViewColumn Header="Unit Price" Width="100" DisplayMemberBinding="{Binding Path=UnitPrice}"/>
+                        <GridViewColumn Header="Unit InStock" Width="100" DisplayMemberBinding="{Binding Path=UnitInStock}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <Label Grid.Column="1" Content="Author: Tran Khanh Hien" HorizontalAlignment="Left" Margin="455,560,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

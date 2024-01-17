@@ -4,6 +4,7 @@ using DataAccess.DataAccess;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,10 +48,21 @@ namespace SalesWPFApp.MemberWindows
         // Mouse down 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
+            //if (e.LeftButton == MouseButtonState.Pressed)
+            //{
+            //    DragMove();
+            //}
+        }
+
+        public void load_Data()
+        {
+            var products = context.Products.Include(p => p.Category).ToList();
+            lvProd.ItemsSource = products;
+            var categories = context.Categories.ToList();
+            Categories = new ObservableCollection<Category>(categories);
+            cbCateId.ItemsSource = Categories;
+            cbCateId.DisplayMemberPath = "CategoryName";
+            cbCateId.SelectedValuePath = "CategoryId";
         }
 
         // Bui Van Kien 

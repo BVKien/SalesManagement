@@ -1,7 +1,12 @@
-﻿using SalesWPFApp.AdminWindows;
+﻿using DataAccess.DataAccess;
+using DataAccess.Repository;
+using Microsoft.EntityFrameworkCore;
+using SalesWPFApp.AdminWindows;
 using SalesWPFApp.MemberWindows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,14 +21,17 @@ using System.Windows.Shapes;
 
 namespace SalesWPFApp.AdminWindow
 {
-    /// <summary>
-    /// Interaction logic for ProductsManagerWindow.xaml
-    /// </summary>
+
     public partial class ProductsManagerWindow : Window
     {
+        private readonly IProductRepository productRepository;
+        public ObservableCollection<Category> Categories { get; set; }
+        private static eStoreContext context;
         private readonly LoginWindow.UserRole userRole;
         public ProductsManagerWindow()
         {
+            context = new eStoreContext();
+            productRepository = new ProductRepository(context);
             InitializeComponent();
             Closing += MainWindow_Closing;
             AdjustUIForUserRole();
@@ -101,6 +109,164 @@ namespace SalesWPFApp.AdminWindow
             };
             this.Hide();
             loginWindow.Show();
+        }
+
+        public void load_Data()
+        {
+            var products = context.Products.Include(p => p.Category).ToList();
+            lvProd.ItemsSource = products;
+            var categories = context.Categories.ToList();
+            Categories = new ObservableCollection<Category>(categories);
+            cbCateId.ItemsSource = Categories;
+            cbCateId.DisplayMemberPath = "CategoryName";
+            cbCateId.SelectedValuePath = "CategoryId";
+        }
+
+        public Product GetProductFromUI()
+        {
+            Product product = new Product();
+
+            if (cbCateId.SelectedValue != null)
+            {
+                product.CategoryId = (int)cbCateId.SelectedValue;
+            }
+            else
+            {
+                product.CategoryId = 0;
+            }
+
+            product.ProductName = tbProdName.Text;
+            product.Weight = string.IsNullOrWhiteSpace(tbWeight.Text) ? (float?)null : float.Parse(tbWeight.Text);
+
+            if (int.TryParse(tbPrice.Text, out int unitPrice))
+            {
+                product.UnitPrice = unitPrice;
+            }
+            else
+            {
+                product.UnitPrice = 0;
+            }
+
+            if (int.TryParse(tbInStock.Text, out int unitInStock))
+            {
+                product.UnitInStock = unitInStock;
+            }
+            else
+            {
+                product.UnitInStock = 0;
+            }
+
+            return product;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            load_Data();
+        }
+        private void ClearUIFields()
+        {
+            // Đặt lại giá trị trên giao diện người dùng sau khi thêm sản phẩm
+            tbProdId.Text = "";
+            cbCateId.SelectedIndex = -1;
+            tbProdName.Text = "";
+            tbWeight.Text = "";
+            tbPrice.Text = "";
+            tbInStock.Text = "";
+        }
+
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Product newProduct = GetProductFromUI();
+                productRepository.AddProduct(newProduct);
+                load_Data();
+                ClearUIFields();
+                MessageBox.Show("Product added successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding product: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Product selectedProduct = (Product)lvProd.SelectedItem;
+
+                if (selectedProduct != null)
+                {
+                    Product updatedProduct = GetProductFromUI();
+                    updatedProduct.ProductId = selectedProduct.ProductId;
+                    productRepository.UpdateProduct(updatedProduct);
+                    load_Data();
+                    ClearUIFields();
+                    MessageBox.Show("Product updated successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a product to update.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating product: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Product selectedProduct = (Product)lvProd.SelectedItem;
+
+                if (selectedProduct != null)
+                {
+                    MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        productRepository.DeleteProduct(selectedProduct.ProductId);
+
+                        load_Data();
+
+                        ClearUIFields();
+                        MessageBox.Show("Product deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a product to delete.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting product: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btSearch_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                Product searchProduct = GetProductFromUI();
+
+
+                var foundProducts = productRepository.SearchProduct(searchProduct);
+
+
+                lvProd.ItemsSource = foundProducts;
+
+                MessageBox.Show("Search completed successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching product: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

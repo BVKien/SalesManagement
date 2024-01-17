@@ -48,6 +48,13 @@
                  Text="{Binding Path=OrderDetailId, Mode=OneWay}"
                  DataContext="{Binding ElementName=dgOrderDetailList, Path=SelectedItem}" />
 
+                <ComboBox x:Name="cbCateId" 
+                      ItemsSource="{Binding Categories}" 
+                      SelectedValuePath="CategoryId"
+                      DisplayMemberPath="CategoryName"
+                      SelectedValue="{Binding ElementName=lvProd, Path=SelectedItem.CategoryId}">
+                </ComboBox>
+
                 <Label Content="ProductName" HorizontalAlignment="Left" Margin="13,23,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtProductId" HorizontalAlignment="Left" 
                  VerticalAlignment="Top" Margin="120,27,0,0" Width="200"
