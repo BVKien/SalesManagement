@@ -40,7 +40,7 @@
 
     <Window.Resources>
         <DataTemplate x:Key="DetailsButtonTemplate">
-            <Button Content="Details"/>
+            <Button Content="Details" Click="CellContent_click"/>
         </DataTemplate>
     </Window.Resources>
 </Window>

@@ -32,7 +32,7 @@ namespace SalesWPFApp.MemberWindows
         private readonly IProductRepository productRepository;
         private readonly int _orderId;
 
-        public ObservableCollection<Product> Products { get; private set; }
+        public ObservableCollection<Product> Products { get; set; }
 
         public OrderDetailsWindow(int orderId)
         {
@@ -44,6 +44,15 @@ namespace SalesWPFApp.MemberWindows
             Closing += MainWindow_Closing;
             this._orderId = orderId;
             LoadOrderDetailsList(_orderId);
+        }
+        public OrderDetailsWindow()
+        {
+            InitializeComponent();
+            orderDetailObject = new OrderDetailObject(new OrderDetailRepository());
+            orderDetailRepository = new OrderDetailRepository();
+            context = new eStoreContext();
+            productRepository = new ProductRepository(context);
+            Closing += MainWindow_Closing;
         }
 
         // Close 

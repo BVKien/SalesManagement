@@ -1,4 +1,5 @@
 ﻿using DataAccess.DAO;
+using DataAccess.DataAccess;
 using DataAccess.ViewObjects;
 using SalesWPFApp.AdminWindows;
 using SalesWPFApp.MemberWindows;
@@ -182,8 +183,19 @@ namespace SalesWPFApp.AdminWindow
                 lblHeader.Visibility = Visibility.Hidden;
                 lblTotalMoney.Visibility = Visibility.Hidden;
                 dtgInfo.Visibility = Visibility.Hidden;
+                dtgInfo.Items.Clear();
                 SearchBtn.Content = "Search";
                 BtnClicked++;
+            }
+        }
+        private void CellContent_click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btn = (Button)sender;
+                var data = (OrderReport)btn.DataContext;
+                OrderDetailsWindow window = new OrderDetailsWindow();
+                window.Products = new ObservableCollection<Product>(data.OrderDetails.Select(x => x.Product));
             }
         }
     }
