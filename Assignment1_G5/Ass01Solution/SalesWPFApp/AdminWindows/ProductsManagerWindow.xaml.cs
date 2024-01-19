@@ -175,7 +175,7 @@ namespace SalesWPFApp.AdminWindow
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding product: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please fill product information to add.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -202,7 +202,6 @@ namespace SalesWPFApp.AdminWindow
             {
                 MessageBox.Show($"Error updating product: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private void btDelete_Click(object sender, RoutedEventArgs e)

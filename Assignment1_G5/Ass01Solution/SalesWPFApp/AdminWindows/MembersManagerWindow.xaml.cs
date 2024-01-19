@@ -147,6 +147,15 @@ namespace SalesWPFApp.AdminWindows
             Member member = new Member();
             try
             {
+                if (string.IsNullOrWhiteSpace(inputEmail.Text) ||
+                    string.IsNullOrWhiteSpace(inputCompanyName.Text) ||
+                    string.IsNullOrWhiteSpace(inputCity.Text) ||
+                    string.IsNullOrWhiteSpace(inputCountry.Text) ||
+                    string.IsNullOrWhiteSpace(inputPassword.Text))
+                {
+                    throw new Exception("All fields must be filled in.");
+                }
+
                 member = new Member
                 {
                     Email = inputEmail.Text,
@@ -160,10 +169,9 @@ namespace SalesWPFApp.AdminWindows
             {
                 MessageBox.Show(e.Message, "Get member");
             }
-
             return member;
-
         }
+
         private Member GetMemberObject(int id)
         {
             Member member = memberRepository.GetMember(id);

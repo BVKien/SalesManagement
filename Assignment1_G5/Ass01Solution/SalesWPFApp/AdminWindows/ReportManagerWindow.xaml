@@ -9,22 +9,13 @@
         WindowStartupLocation="CenterScreen"
         Height="600" Width="1000" Loaded="Form_Loaded">
     <Grid>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="22*"></RowDefinition>
-            <RowDefinition Height="80*"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>-->
-
         <Menu x:Name="menuBar" 
               Margin="0,0,0,568" 
               Background="#f2f6fd"/>
         <Label Content="Author: Nguyen Truong Huy"
-               FontSize="15"
+               FontSize="12"
                HorizontalAlignment="Left" 
-               Margin="773,560,0,0" 
+               Margin="745,560,0,0" 
                VerticalAlignment="Top" RenderTransformOrigin="0.357,0.22"/>
 
 
@@ -33,9 +24,10 @@
         <TextBlock x:Name="lblSubtract" Grid.Column="0" Grid.Row="0" Text="-" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="133,33,0,0"></TextBlock>
         <DatePicker Name="DatePickerTo" Grid.Column="0" Grid.Row="0" Height="28" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,40,0,0"></DatePicker>
         <TextBlock x:Name="lblHeader" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" Text="SALES REPORT" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Margin="0,69,0,0"/>
-        <TextBlock x:Name="lblTotalMoney" HorizontalAlignment="Left" Margin="10,0,0,460" TextWrapping="Wrap" Text="Total monthly revenue" VerticalAlignment="Bottom"/>
-        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" Name="dtgInfo" Width="Auto" Margin="2,166,2,3"/>
+        <TextBlock x:Name="lblTotalMoney" HorizontalAlignment="Left" Margin="137,0,0,457" TextWrapping="Wrap" Text="Total monthly revenue" VerticalAlignment="Bottom"/>
+        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" Name="dtgInfo" Width="Auto" Margin="2,166,2,40"/>
         <Button Name="SearchBtn" Content="Search" HorizontalAlignment="Left" Margin="5,75,5,0" VerticalAlignment="Top" Height="28" Width="100" Click="Button_Click"/>
+        <TextBlock x:Name="lblTotalMoney_Copy" HorizontalAlignment="Left" Margin="10,0,0,457" TextWrapping="Wrap" Text="Total monthly revenue" VerticalAlignment="Bottom"/>
     </Grid>
 
     <Window.Resources>

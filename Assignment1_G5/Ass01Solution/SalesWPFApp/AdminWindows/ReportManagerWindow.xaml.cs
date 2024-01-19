@@ -27,6 +27,7 @@ namespace SalesWPFApp.AdminWindow
     public partial class ReportManagerWindow : Window
     {
         private readonly LoginWindow.UserRole userRole;
+        private readonly int _orderId;
         public ReportManagerWindow()
         {
             InitializeComponent();
@@ -122,6 +123,7 @@ namespace SalesWPFApp.AdminWindow
         {
             lblHeader.Visibility = Visibility.Hidden;
             lblTotalMoney.Visibility = Visibility.Hidden;
+            lblTotalMoney_Copy.Visibility = Visibility.Hidden;
             dtgInfo.Visibility = Visibility.Hidden;
         }
 
@@ -150,15 +152,17 @@ namespace SalesWPFApp.AdminWindow
 
                 lblHeader.Visibility = Visibility.Visible;
                 lblTotalMoney.Visibility = Visibility.Visible;
+                lblTotalMoney_Copy.Visibility = Visibility.Visible;
                 dtgInfo.Visibility = Visibility.Visible;
 
                 SearchBtn.Content = "Clear";
 
                 OrderDAO dao = new OrderDAO();
-                ObservableCollection<OrderReport> DataList = new(dao.GetOrderReport(DateFrom.Value, DateTo.Value));
+                ObservableCollection<OrderReport> DataList = new(dao.GetOrderReport(DateFrom.Value, DateTo.Value)); 
 
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Order Id", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("OrderId"), Visibility = Visibility.Collapsed });
                 dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Order Date", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("OrderDate") });
-                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Shipped Date", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("ShippedDate") });
+                dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Shipped Date", Width = Width / 4 - 1.5, Binding = new System.Windows.Data.Binding("ShippedDate") });
                 dtgInfo.Columns.Add(new DataGridTextColumn() { Header = "Revenue", Width = Width / 4 - 1, Binding = new System.Windows.Data.Binding("Revenue") });
 
                 DataGridTemplateColumn detailsColumn = new DataGridTemplateColumn()
@@ -182,8 +186,8 @@ namespace SalesWPFApp.AdminWindow
 
                 lblHeader.Visibility = Visibility.Hidden;
                 lblTotalMoney.Visibility = Visibility.Hidden;
+                lblTotalMoney_Copy.Visibility = Visibility.Hidden;
                 dtgInfo.Visibility = Visibility.Hidden;
-                dtgInfo.Items.Clear();
                 SearchBtn.Content = "Search";
                 BtnClicked++;
             }
@@ -194,8 +198,9 @@ namespace SalesWPFApp.AdminWindow
             {
                 Button btn = (Button)sender;
                 var data = (OrderReport)btn.DataContext;
-                OrderDetailsWindow window = new OrderDetailsWindow();
-                window.Products = new ObservableCollection<Product>(data.OrderDetails.Select(x => x.Product));
+                int _orderId = data.OrderId;
+                OrderDetailsWindow window = new OrderDetailsWindow(_orderId);
+                window.Show();
             }
         }
     }

@@ -64,27 +64,6 @@ namespace SalesWPFApp.MemberWindows
 
         // Bui Van Kien 
         // Get order detail object
-        //private OrderDetail GetOrderDetailObject()
-        //{
-        //    OrderDetail orderDetail = null;
-        //    try
-        //    {
-        //        orderDetail = new OrderDetail
-        //        {
-        //            ProductId = (int)cbProductId.SelectedValue,
-        //            OrderId = _orderId,
-        //            UnitPrice = int.Parse(txtUnitPrice.Text),
-        //            Quantity = int.Parse(txtQuantity.Text),
-        //            Discount = int.Parse(txtDiscount.Text),
-        //        };
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message, "Get order");
-        //    }
-        //    return orderDetail;
-        //}
-
         private OrderDetail GetOrderDetailObject()
         {
             OrderDetail orderDetail = null;

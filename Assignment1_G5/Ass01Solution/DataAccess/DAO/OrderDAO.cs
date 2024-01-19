@@ -149,6 +149,7 @@ namespace DataAccess.DAO
                     .Where(o => o.OrderDate >= fromDate && o.OrderDate <= toDate)
                     .Select(o => new OrderReport
                     {
+                        OrderId = o.OrderId,
                         OrderDate = o.OrderDate,
                         ShippedDate = o.ShippedDate,
                         Revenue = o.OrderDetails.Sum(od => (od.UnitPrice * od.Quantity) - od.Discount),

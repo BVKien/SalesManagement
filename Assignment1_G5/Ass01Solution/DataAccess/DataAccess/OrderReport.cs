@@ -13,6 +13,7 @@ namespace DataAccess.ViewObjects
         {
             OrderDetails = new List<OrderDetail>();
         }
+        public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime ShippedDate { get; set; }
         public int Revenue { get; set; }
