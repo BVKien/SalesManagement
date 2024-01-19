@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {}
+    "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
+    "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\obj\\",
+        "outputPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

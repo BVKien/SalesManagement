@@ -2423,11 +2423,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
+      "projectUniqueName": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
       "projectName": "BusinessObject",
-      "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
+      "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\BusinessObject\\BusinessObject.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\BusinessObject\\obj\\",
+      "outputPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\BusinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2444,8 +2444,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj"
+            "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj"
             }
           }
         }

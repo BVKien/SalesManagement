@@ -13,6 +13,9 @@
     <Compile Update="AdminWindows\ProductsManagerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="AdminWindows\ReportDetailsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="AdminWindows\ReportManagerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminWindows\ProductsManagerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AdminWindows\ReportDetailsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="AdminWindows\ReportManagerWindow.xaml">

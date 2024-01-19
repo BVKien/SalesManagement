@@ -27,7 +27,6 @@ namespace SalesWPFApp.AdminWindow
     public partial class ReportManagerWindow : Window
     {
         private readonly LoginWindow.UserRole userRole;
-        private readonly int _orderId;
         public ReportManagerWindow()
         {
             InitializeComponent();
@@ -199,7 +198,7 @@ namespace SalesWPFApp.AdminWindow
                 Button btn = (Button)sender;
                 var data = (OrderReport)btn.DataContext;
                 int _orderId = data.OrderId;
-                OrderDetailsWindow window = new OrderDetailsWindow(_orderId);
+                ReportDetailsWindow window = new ReportDetailsWindow(_orderId);
                 window.Show();
             }
         }

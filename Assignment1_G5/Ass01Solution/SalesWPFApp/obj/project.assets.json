@@ -2443,11 +2443,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\SalesWPFApp\\SalesWPFApp.csproj",
+      "projectUniqueName": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\SalesWPFApp\\SalesWPFApp.csproj",
       "projectName": "SalesWPFApp",
-      "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\SalesWPFApp\\SalesWPFApp.csproj",
+      "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\SalesWPFApp\\SalesWPFApp.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\SalesWPFApp\\obj\\",
+      "outputPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\SalesWPFApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2464,11 +2464,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj": {
-              "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\BusinessObject\\BusinessObject.csproj"
+            "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\BusinessObject\\BusinessObject.csproj": {
+              "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\BusinessObject\\BusinessObject.csproj"
             },
-            "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Assignment1_G5\\Ass01Solution\\DataAccess\\DataAccess.csproj"
+            "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\FPT_University_Hoa_Lac\\Ky_7_Spring_2024\\PRN221\\Assigment\\New folder\\Group5_Assignment1\\Ass01Solution\\DataAccess\\DataAccess.csproj"
             }
           }
         }

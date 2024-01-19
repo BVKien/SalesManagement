@@ -197,7 +197,7 @@ namespace SalesWPFApp.MemberWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;component/memberwindows/ordersmanagerwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SalesWPFApp;V1.0.0.0;component/memberwindows/ordersmanagerwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\MemberWindows\OrdersManagerWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
